@@ -1,0 +1,189 @@
+.container{
+  max-height: auto;
+  overflow-y: auto;
+}
+.filtros-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 300px;
+  max-width: 400px;
+}
+.btn-transparent {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.btn-transparent .material-icons {
+  font-size: 20px;
+  color: #8c8989;
+}
+.custom-input {
+  border: none;
+  padding: 8px;
+  width: 100%;
+  font-size: 16px;
+}
+.custom-input:focus {
+  outline: none;
+}
+.documentos-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+h4 {
+  margin: 20px 0; 
+}
+.card-container {
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 50px; 
+}
+.card-documentos {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  flex: 1 1 225px; 
+  max-width: 225px;
+  height: 200px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-documentos:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.options-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 16px;
+  color: #8c8989;
+  z-index: 100;
+}
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.icon {
+  font-size: 125px;
+  color: #8c8989;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.badge {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%) translateX(100%);
+  background-color: #012e58;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  z-index: 2;
+}
+.card-content {
+  text-align: center;
+}
+.card-content h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+.card-content p {
+  font-size: 10px;
+  color: #555;
+}
+@media (min-width: 1630px) {
+  .card-documentos {
+    flex: 1 1 calc(16.66% - 10px); 
+  }
+  .card-container {
+    gap: 20px; 
+  }
+}
+@media (min-width: 1024px) {
+  .card-documentos {
+    flex: 1 1 calc(25% - 16px); 
+  }
+}
+@media (max-width: 1024px) {
+  .card-documentos {
+    flex: 1 1 calc(50% - 16px); 
+  }
+}
+@media (max-width: 600px) {
+  .card-documentos {
+    flex: 1 1 calc(100% - 16px); 
+  }
+}
+.custom-menu .mat-menu-item {
+  font-size: 9px; 
+}
+.custom-menu .mat-menu-item mat-icon {
+  font-size: 9px; 
+}
+.button-color {
+  background-color: #012e58;
+  color: white;
+  margin-right: 10px;
+}
+.no-data-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 60vh; 
+}
+.message-text {
+  color: gray;
+}
+.card-carpetas {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2px 16px; 
+  flex: 1 1 225px; 
+  max-width: 225px;
+  position: relative;
+}
+.card-carpetas-content {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+}
+.carpeta-info {
+  display: flex;
+  align-items: center; 
+}
+.nombre-file {
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  max-width: 150px;
+  margin-left: 5px; 
+  margin-top: 17px;
+}
+
+

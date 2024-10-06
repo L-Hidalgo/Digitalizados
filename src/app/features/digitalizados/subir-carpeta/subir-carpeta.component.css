@@ -1,0 +1,22 @@
+.dialog-content {
+  text-align: center;
+}
+.dialog-title {
+  margin-bottom: 16px;
+}
+.full-width-form-field {
+  width: 100%;
+}
+.dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px;
+}
+.create-button {
+  background-color: #012e58;
+  color: white;
+}
+.cancel-button {
+  background-color: gray;
+  color: white;
+}

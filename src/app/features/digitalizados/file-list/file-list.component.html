@@ -1,0 +1,114 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div fxFlex="95%">
+        <h2>File</h2>
+        <div class="filtros-container">
+            <div class="input-group search-bar">
+                <button class="btn btn-transparent search-icon" matSuffix mat-icon-button>
+                    <span class="material-icons">search</span>
+                </button>
+                <input type="text" class="form-control custom-input" placeholder="Buscar..." #personaFile
+                    (input)="aplicarFiltrosDigitalizados(personaFile.value)" #input />
+
+                <button class="btn btn-transparent clear-icon" matSuffix mat-icon-button *ngIf="input.value"
+                    (click)="clearFiltrosDigitalizados(input)">
+                    <mat-icon class="material-icons">clear</mat-icon>
+                </button>
+            </div>
+            <!--<button class="button-color" mat-button mat-raised-button [matMenuTriggerFor]="menu"
+                *ngIf="role === 'Administrador' || role === 'Gestor'">-->
+                <button class="button-color" mat-button mat-raised-button [matMenuTriggerFor]="menu">
+                <mat-icon>add</mat-icon> Nuevo
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="openModalCrearCarpeta()">
+                    <mat-icon>create_new_folder</mat-icon> Crear Carpeta
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-menu-item (click)="openModalUploadCarpeta()">
+                    <mat-icon>create_new_folder</mat-icon> Subir Carpeta
+                </button>
+                <button mat-menu-item (click)="openModalUploadDocumento()">
+                    <mat-icon>note_add</mat-icon> Subir Archivo
+                </button>
+            </mat-menu>
+        </div>
+        <div class="carpeta-container">
+            <div class="table-container">
+                <table mat-table [dataSource]="dataSource" matSort>
+                    <ng-container matColumnDef="nombre">
+                        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                        <td mat-cell *matCellDef="let row; index as i">
+                            <div *ngIf="row.tipoFile === 1" class="white-background" (click)="navigateToChildren(row.idFile)">
+                                <mat-icon>folder</mat-icon> {{ row.nombreFile }}
+                            </div>
+                            <div *ngIf="row.tipoFile === 2" class="white-background">
+                                <mat-icon style="color:red">picture_as_pdf</mat-icon> {{ row.nombreFile }}
+                            </div>            
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="propietario">
+                        <th mat-header-cell *matHeaderCellDef class="centrar">Propietario</th>
+                        <td mat-cell *matCellDef="let row; index as i">
+                            <div class="white-background color-gray">
+                                <mat-icon>account_circle</mat-icon> {{ row.propietario }}
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="ultimaModificacion">
+                        <th mat-header-cell *matHeaderCellDef class="centrar">Última modificación</th>
+                        <td mat-cell *matCellDef="let row; index as i">
+                            <div class="color-gray">
+                                {{ row.updatedAt | date:'dd MMM yyyy' }}
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="acciones">
+                        <th mat-header-cell *matHeaderCellDef class="centrar">Acciones</th>
+                        <td mat-cell *matCellDef="let row; index as i">
+                            <div class="icon-container color-gray">
+                                <mat-icon (click)="downloadCarpeta(row.idFile, row.nombreFile)">save_alt</mat-icon>
+                                <mat-icon (click)="openModalModificarFile(row.idFile)">border_color</mat-icon>
+                                <mat-icon (click)="darBajaFile(row.idFile)">delete_outline</mat-icon>
+                              </div>                              
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="12">
+                            No hay datos que coincidan con el filtro. "
+                            <span>{{ personaFile.value }}</span>"
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="mat-paginator mat-paginator-right">
+                <div class="mat-paginator-options">
+                    <span class="mat-paginator-label">Archivos por página:</span>
+                    <select id="pageSizeSelect" class="form-select form-select-sm" (change)="onPageSizeChange($event)">
+                        <option *ngFor="let option of pageSizeOptions" [value]="option"
+                            [selected]="option === pageSize">{{ option
+                            }}</option>
+                    </select>
+                </div>
+                <div class="mat-paginator-navigation">
+                    <button class="mat-paginator-navigation-button mat-paginator-previous" [disabled]="pageIndex === 0"
+                        (click)="onPreviousPage()">
+                        <mat-icon aria-hidden="true">chevron_left</mat-icon>
+                    </button>
+                    <div class="mat-paginator-page">
+                        <span class="mat-paginator-range-label">{{ rangeLabel }}</span>
+                    </div>
+                    <button class="mat-paginator-navigation-button mat-paginator-next"
+                        [disabled]="(pageIndex + 1) * pageSize >= length" (click)="onNextPage()">
+                        <mat-icon aria-hidden="true">chevron_right</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

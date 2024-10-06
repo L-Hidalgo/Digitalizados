@@ -1,0 +1,7 @@
+<h1 mat-dialog-title class="dialog-title">Vista Previa</h1>
+<div mat-dialog-content class="dialog-content">
+  <iframe [src]="pdfSrc | safeUrl" class="pdf-iframe"></iframe>
+</div>
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button (click)="close()" class="close-button">Cerrar</button>
+</div>

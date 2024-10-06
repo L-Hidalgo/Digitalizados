@@ -1,0 +1,130 @@
+.filtros-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 300px;
+  max-width: 400px;
+}
+.custom-input {
+  border: none;
+  padding: 8px;
+  width: 100%;
+  font-size: 16px;
+}
+.custom-input:focus {
+  outline: none;
+}
+.btn-transparent {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.btn-transparent .material-icons {
+  font-size: 20px;
+  color: #8c8989;
+}
+.button-color {
+  background-color: #012e58;
+  color: white;
+  margin-right: 10px;
+}
+.carpeta-container {
+  width: 100%;
+  margin: 20px 0;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  max-width: 100%;
+}
+table.mat-table {
+  width: 100%;
+  font-size: 12px;
+  font-weight: 500;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.white-background {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin: 5px;
+}
+th.mat-header-cell {
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: 2px solid #ccc;
+}
+.color-gray {
+  color: gray;
+  text-align: center;
+}
+.white-background mat-icon {
+  margin-right: 5px;
+  padding-right: 5px;
+  font-size: 20px;
+}
+.mat-cell {
+  padding: 5px;
+}
+.icon-container {
+  display: flex;
+  align-items: center;
+}
+.icon-container mat-icon {
+  margin-right: 16px;
+  font-size: 19px;
+}
+.icon-container mat-icon:hover {
+  margin-right: 16px;
+  font-size: 19px;
+  color: #333;
+}
+.icon-container mat-icon:last-child {
+  margin-right: 0;
+}
+.mat-paginator {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px 0;
+}
+.mat-paginator-options {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.mat-paginator-options select {
+  font-size: 12px;
+  background-color: #f0f0f0;
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin: 5px;
+}
+.mat-paginator-navigation {
+  display: flex;
+  align-items: center;
+}
+.mat-paginator-navigation-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.mat-paginator-page {
+  margin: 0 10px;
+}
+.mat-paginator-range-label {
+  font-size: 12px;
+}
