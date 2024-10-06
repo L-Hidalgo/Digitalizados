@@ -36,9 +36,10 @@ export class SubirCarpetaComponent implements OnInit {
 
   onCarpetaSelected(event: any) {
     const selectedFiles = event.target.files;
-
+    console.log('selectedFiles:', selectedFiles);
     if (selectedFiles.length > 0) {
       const folderPath = selectedFiles[0].webkitRelativePath;
+      console.log('folderPath:', folderPath);
       this.nombreFile = folderPath.split("/")[0];
       this.files = Array.from(selectedFiles);
       this.form.patchValue({ nombreFile: this.nombreFile });
@@ -69,9 +70,15 @@ export class SubirCarpetaComponent implements OnInit {
     }
 
     if (this.files.length > 0) {
+      const arrayPaths: Array<{ fileName: string; filePath: string}> = [];
       this.files.forEach((file) => {
         formData.append("files[]", file);
+        arrayPaths.push({
+          fileName: file.name,
+          filePath: file.webkitRelativePath,
+        });
       });
+      formData.append("paths", JSON.stringify(arrayPaths));
     } else {
       Swal.fire({
         title: "Error",
